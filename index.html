@@ -1,692 +1,773 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Healthcare Infrastructure Intelligence Platform | Dr. Rakesh A.V Neuro-Care Hospital</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-:root{
---primary:#0f3d3e;
---secondary:#1d6f6f;
---accent:#d8efe8;
---light:#f8fafc;
---text:#1f2937;
---danger:#991b1b;
---warning:#c2410c;
-}
-*{box-sizing:border-box;scroll-behavior:smooth;}
-body{
-margin:0;
-font-family:'Arial Narrow',Arial,sans-serif;
-background:#f4f7f8;
-color:var(--text);
-line-height:1.75;
-}
-body::before{
-content:'GREENSCAPE DESIGNZ';
-position:fixed;
-top:45%;
-left:50%;
-transform:translate(-50%,-50%) rotate(-30deg);
-font-size:6rem;
-font-weight:bold;
-letter-spacing:12px;
-color:rgba(15,61,62,0.035);
-pointer-events:none;
-z-index:0;
-white-space:nowrap;
-}
-header{
-background:linear-gradient(135deg,#0f3d3e,#123b58);
-color:white;
-padding:90px 40px;
-text-align:center;
-position:relative;
-z-index:1;
-}
-header h1{font-size:3.2rem;margin-bottom:10px;}
-header p{max-width:1000px;margin:auto;font-size:1.1rem;}
-nav{
-position:sticky;
-top:0;
-z-index:999;
-background:white;
-padding:14px;
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-justify-content:center;
-border-bottom:1px solid #d7d7d7;
-box-shadow:0 6px 20px rgba(0,0,0,0.06);
-}
-nav a{
-text-decoration:none;
-color:var(--primary);
-font-weight:bold;
-font-size:0.92rem;
-}
-.container{
-width:min(1280px,92%);
-margin:auto;
-position:relative;
-z-index:1;
-}
-section{
-background:white;
-margin:28px 0;
-padding:42px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.06);
-}
-h2{
-color:var(--primary);
-border-left:6px solid var(--secondary);
-padding-left:16px;
-}
-h3{color:#134e4a;}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:22px;
-}
-.card{
-background:var(--light);
-border-left:5px solid var(--secondary);
-padding:20px;
-border-radius:14px;
-}
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-th,td{
-border:1px solid #d9dfe5;
-padding:14px;
-vertical-align:top;
-}
-th{
-background:var(--primary);
-color:white;
-}
-tr:nth-child(even){background:#f8fafc;}
-.quote{
-background:#ecfeff;
-border-left:5px solid var(--secondary);
-padding:20px;
-margin:24px 0;
-font-style:italic;
-}
-.floating-brand{
-position:fixed;
-right:18px;
-bottom:18px;
-z-index:99999;
-background:linear-gradient(135deg,#0f3d3e,#1d6f6f);
-color:white;
-text-decoration:none;
-padding:14px 20px;
-border-radius:50px;
-font-weight:bold;
-box-shadow:0 10px 30px rgba(0,0,0,0.25);
-}
-.chart-wrap{height:420px;margin-top:30px;}
-.tag{
-display:inline-block;
-padding:6px 12px;
-margin:4px;
-border-radius:30px;
-background:#dbeafe;
-font-size:0.82rem;
-}
-footer{
-background:#0f172a;
-color:white;
-padding:50px;
-text-align:center;
-margin-top:50px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrated Healthcare Infrastructure Strategy Report | Dr. Rakesh A.V Hospital</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --primary: #0f3d3e;
+      --secondary: #1d6f6f;
+      --accent: #d8efe8;
+      --text: #1f2937;
+      --light: #f8fafc;
+      --warning: #c2410c;
+      --danger: #991b1b;
+      --neutral: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial Narrow', Arial, sans-serif;
+      background: #f4f7f8;
+      color: var(--text);
+      line-height: 1.7;
+      position: relative;
+    }
+
+    body::before {
+      content: "GREENSCAPE DESIGNZ";
+      position: fixed;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 6rem;
+      color: rgba(15,61,62,0.04);
+      z-index: 0;
+      pointer-events: none;
+      font-weight: bold;
+      letter-spacing: 10px;
+      white-space: nowrap;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #123b58);
+      color: white;
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      opacity: 0.95;
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      padding: 14px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      background: white;
+      margin: 30px 0;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      color: var(--primary);
+      border-left: 6px solid var(--secondary);
+      padding-left: 16px;
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      color: #134e4a;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 1.05rem;
+    }
+
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 14px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      text-align: left;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--light);
+      border-left: 5px solid var(--secondary);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    }
+
+    .risk-high {
+      color: var(--danger);
+      font-weight: bold;
+      background: #fee2e2;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .risk-medium {
+      color: var(--warning);
+      font-weight: bold;
+      background: #ffedd5;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .quote {
+      background: #ecfeff;
+      border-left: 5px solid var(--secondary);
+      padding: 20px;
+      margin: 20px 0;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #0f3d3e;
+    }
+
+    .reference-list li {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+    
+    .reference-list a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .reference-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chart-container {
+      position: relative;
+      margin: 40px auto;
+      height: 40vh;
+      width: 80vw;
+      max-width: 800px;
+    }
+
+    .floating-brand {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 9999;
+      background: linear-gradient(135deg, #0f3d3e, #1d6f6f);
+      color: white;
+      text-decoration: none;
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .floating-brand:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: #123b58;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-size: 0.9rem;
+      margin: 6px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+
 <header>
-<h1>Healthcare Infrastructure Intelligence Platform</h1>
-<h2>Dr. Rakesh A.V Neuro-Care & Rehabilitation Hospital | Hubli</h2>
-<p>
-Integrated institutional healthcare infrastructure audit combining regulatory compliance,
-fire & disaster resilience, operational intelligence, lifecycle strategy, spatial carrying capacity,
-PMC governance, energy resilience, systems integration, and future-ready healthcare planning.
-</p>
-<p><strong>Prepared by Greenscape Designz</strong><br>
-Strategic Built Environment & Healthcare Systems Advisory | Architect Anirban Pal</p>
+  <h1>Healthcare Infrastructure Intelligence Platform</h1>
+  <h2>Dr. Rakesh A.V Neuro-Care & Rehabilitation Hospital | Hubli</h2>
+  <p>
+    An institution-grade healthcare infrastructure audit integrating regulatory compliance, spatial carrying capacity, multidisciplinary coordination, lifecycle operational intelligence, engineering governance, and emergency resilience.
+  </p>
+  <br>
+  <p><strong>Prepared by Greenscape Designz</strong><br>
+  Strategic Built Environment & Healthcare Systems Advisory | Led by Anirban Pal, Principal Landscape Architect</p>
 </header>
+
 <a href="https://greenscapedesignz.in" target="_blank" class="floating-brand">GreenscapeDesignz.in</a>
 
-<a href="https://github.com/greenscapedesignz/Integrated_Healthcare_Infrastructure_Strategy_Report_Dr_Rakesh/blob/main/RAKESH%20HOSPITAL_SUB%20(15-04-26).pdf" target="_blank" class="floating-pdf" style="position:fixed;left:18px;bottom:18px;z-index:99999;background:#ffffff;color:#0f3d3e;text-decoration:none;padding:12px 18px;border-radius:50px;font-weight:bold;box-shadow:0 10px 30px rgba(0,0,0,0.18);border:2px solid #0f3d3e;">View Source Drawings</a>
-<div class="hero-cta" style="margin-top:30px;">
-  <a href="https://github.com/greenscapedesignz/Integrated_Healthcare_Infrastructure_Strategy_Report_Dr_Rakesh/blob/main/RAKESH%20HOSPITAL_SUB%20(15-04-26).pdf" target="_blank" style="display:inline-block;background:white;color:#0f3d3e;padding:16px 28px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 10px 30px rgba(0,0,0,0.2);">
-    View Primary Architectural & Infrastructure Documentation (PDF)
-  </a>
-</div>
-
 <nav>
-<a href="#summary">Executive</a>
-<a href="#governance">Governance</a>
-<a href="#fire">Fire & Disaster</a>
-<a href="#operations">Operations</a>
-<a href="#spatial">Spatial Audit</a>
-<a href="#landscape">Landscape</a>
-<a href="#solar">Energy</a>
-<a href="#budget">Budget</a>
-<a href="#pmc">PMC</a>
-<a href="#bni">BNI</a>
-<a href="#references">References</a>
+  <a href="#summary">Executive Intelligence</a>
+  <a href="#governance">Indian Regulatory Ecosystem</a>
+  <a href="#disaster">Fire & Disaster Resilience</a>
+  <a href="#failure-points">Failure Points Matrix</a>
+  <a href="#spatial">Spatial Capacity</a>
+  <a href="#landscape">Landscape Strategy</a>
+  <a href="#budget">Lifecycle CAPEX</a>
+  <a href="#psychology">NDPFF Analysis</a>
+  <a href="#pmc">PMC Integration</a>
+  <a href="#references">Verified References</a>
 </nav>
-<div class="container">
-<section id="preface">
-<h2>Project Intent, Strategic Context & Advisory Position</h2>
-<p>
-This report has been developed as a multidisciplinary healthcare infrastructure intelligence and strategic advisory document for the proposed Dr. Rakesh A.V Neuro-Care & Rehabilitation Hospital in Hubli, Karnataka.
-</p>
-<p>
-The intention of this platform is not merely to review architectural drawings, but to critically evaluate the proposed healthcare institution through the lenses of:
-</p>
-<ul>
-<li>institutional healthcare planning,</li>
-<li>operational efficiency,</li>
-<li>engineering governance,</li>
-<li>patient safety,</li>
-<li>fire & disaster resilience,</li>
-<li>lifecycle operational sustainability,</li>
-<li>infection-control logic,</li>
-<li>future scalability,</li>
-<li>energy resilience,</li>
-<li>multidisciplinary coordination, and</li>
-<li>long-term institutional credibility.</li>
-</ul>
-<div class="quote">
-Hospitals are not merely buildings. They are continuously operating life-critical ecosystems where architecture, engineering, clinical operations, emergency management, infection-control systems, human psychology, maintenance accessibility, and regulatory governance must function in synchronized continuity.
-</div>
-<p>
-The project demonstrates strong intent and significant regional potential. However, the current infrastructure planning approach requires transition from isolated architectural adaptation into a rigorously coordinated healthcare systems framework.
-</p>
-</section>
 
-<section id="source-documents">
-<h2>Primary Source Documentation & Drawing Basis</h2>
-<p>
-This healthcare infrastructure intelligence platform has been developed through the review of the primary architectural and structural drawing package submitted for the proposed Dr. Rakesh A.V Neuro-Care & Rehabilitation Hospital.
-</p>
-<div class="quote">
-The observations, operational bottleneck analysis, systems-level recommendations, regulatory concerns, fire & disaster resilience assessments, and multidisciplinary coordination strategies presented within this platform are derived from the review of the architectural planning package, spatial layouts, basement configurations, OT/ICU planning, circulation systems, engineering implications, and institutional healthcare planning layers visible within the submitted documentation.
-</div>
-<p>
-Access the reviewed primary drawing package below:
-</p>
-<p>
-<a href="https://github.com/greenscapedesignz/Integrated_Healthcare_Infrastructure_Strategy_Report_Dr_Rakesh/blob/main/RAKESH%20HOSPITAL_SUB%20(15-04-26).pdf" target="_blank" style="display:inline-block;background:#0f3d3e;color:white;padding:14px 24px;border-radius:40px;text-decoration:none;font-weight:bold;">
-Open Reviewed Institutional Drawing Package (PDF)
-</a>
-</p>
-</section>
+<div class="container">
 
 <section id="summary">
-<h2>1. Executive Intelligence Summary</h2>
-<p>
-The proposed development demonstrates strong potential to evolve into a compact regional neuro-care and rehabilitation institution for Hubli. The structural base and broad departmental stacking remain workable. However, the current configuration behaves more like a partially adapted healthcare shell rather than a fully coordinated institutional healthcare ecosystem.
-</p>
-<div class="quote">
-The long-term success of the project will depend less on isolated architectural execution and more on systems integration, operational intelligence, multidisciplinary coordination, lifecycle planning, and governance-led implementation.
-</div>
-<div class="grid">
-<div class="card">
-<h3>Core Strengths</h3>
-<ul>
-<li>Strong neuro-rehabilitation potential</li>
-<li>Logical vertical zoning</li>
-<li>Compact urban healthcare positioning</li>
-<li>Workable structural framework</li>
-<li>Potential institutional healthcare identity</li>
-</ul>
-</div>
-<div class="card">
-<h3>Critical Risks</h3>
-<ul>
-<li>Healthcare occupancy misclassification</li>
-<li>Operational saturation risk</li>
-<li>Weak sterile OT sequencing</li>
-<li>Fire & evacuation vulnerabilities</li>
-<li>Engineering coordination gaps</li>
-</ul>
-</div>
-<div class="card">
-<h3>Strategic Opportunities</h3>
-<ul>
-<li>PMC-led systems integration</li>
-<li>NABH-oriented planning</li>
-<li>Lifecycle OPEX optimization</li>
-<li>Solar & energy resilience</li>
-<li>Smart hospital infrastructure</li>
-</ul>
-</div>
-</div>
+  <h2>1. Executive Intelligence Summary</h2>
+  <p>
+    The proposed development demonstrates a strong intent to establish a compact urban neuro-care and rehabilitation hospital. However, transitioning from a conceptual blueprint to a compliant, high-performance healthcare facility requires rigorous systems intelligence.
+  </p>
+
+  <div class="quote">
+    This platform elevates the project from a structurally adapted shell into an engineered institutional healthcare ecosystem, heavily emphasizing carrying capacity, disaster continuity, and engineering ethics.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Strategic Strengths</h3>
+      <ul>
+        <li>Specialized neuro-rehabilitation potential</li>
+        <li>Logical vertical spatial stacking</li>
+        <li>Compact, accessible urban positioning</li>
+        <li>Workable structural civil framework</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Critical Vulnerabilities</h3>
+      <ul>
+        <li>Institutional regulatory misclassification</li>
+        <li>Severe operational circulation compression</li>
+        <li>Weak sterile hierarchy in OT zones</li>
+        <li>Absence of lifecycle OPEX planning</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Intervention Mandates</h3>
+      <ul>
+        <li>PMC-led multidisciplinary systems integration</li>
+        <li>Strict NABH & AERB alignment</li>
+        <li>Fire NOC & Life Safety redesign</li>
+        <li>Data-driven energy resilience implementation</li>
+      </ul>
+    </div>
+  </div>
 </section>
+
 <section id="governance">
-<h2>2. Indian Regulatory & Governance Ecosystem</h2>
-<table>
-<thead><tr><th>Authority / Body</th><th>Strategic Relevance</th><th>Role</th></tr></thead>
-<tbody>
-<tr><td>Council of Architecture (COA)</td><td>Professional accountability</td><td>Architectural legitimacy & verification</td></tr>
-<tr><td>Institution of Engineers India (IEI)</td><td>Engineering governance</td><td>Structural & MEP systems validation</td></tr>
-<tr><td>NBC 2016 - BIS</td><td>Healthcare occupancy norms</td><td>Fire, circulation & planning compliance</td></tr>
-<tr><td>NABH</td><td>Healthcare quality systems</td><td>Patient safety & operational standards</td></tr>
-<tr><td>AERB</td><td>Radiology safety</td><td>Shielding & equipment compliance</td></tr>
-<tr><td>NDMA</td><td>Disaster preparedness</td><td>Hospital resilience & emergency continuity</td></tr>
-<tr><td>KPME</td><td>Healthcare establishment licensing</td><td>Operational registration</td></tr>
-</tbody>
-</table>
-</section>
-<section id="fire">
-<h2>3. Fire, Disaster & Emergency Resilience</h2>
-<div class="grid">
-<div class="card">
-<h3>Observed Gaps</h3>
-<ul>
-<li>Limited dedicated fire staircase logic</li>
-<li>Basement smoke extraction vulnerabilities</li>
-<li>Weak refuge planning</li>
-<li>Compressed emergency circulation</li>
-<li>Potential evacuation bottlenecks</li>
-</ul>
-</div>
-<div class="card">
-<h3>Strategic Interventions</h3>
-<ul>
-<li>Healthcare fire consultant onboarding</li>
-<li>Smoke extraction modeling</li>
-<li>Compartmentation strategy</li>
-<li>Emergency evacuation simulation</li>
-<li>Fire command integration</li>
-</ul>
-</div>
-<div class="card">
-<h3>Continuity Planning</h3>
-<ul>
-<li>Critical power redundancy</li>
-<li>Hybrid Grid + DG + UPS resilience</li>
-<li>Emergency patient routing</li>
-<li>Disaster recovery protocols</li>
-<li>Mass casualty preparedness</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="operations-strategy">
-<h2>4A. Integrated Healthcare Operations Intelligence</h2>
-<p>
-Operational efficiency within healthcare institutions directly influences:
-</p>
-<ul>
-<li>patient survival outcomes,</li>
-<li>staff fatigue levels,</li>
-<li>infection transmission risk,</li>
-<li>facility operating expenditure,</li>
-<li>maintenance downtime,</li>
-<li>patient satisfaction,</li>
-<li>clinical throughput efficiency, and</li>
-<li>institutional accreditation readiness.</li>
-</ul>
-<p>
-The proposed facility currently demonstrates multiple operational stress points which may progressively intensify after occupancy if not resolved during the planning and engineering coordination phase.
-</p>
-<table>
-<thead>
-<tr>
-<th>Operational Domain</th>
-<th>Existing Risk</th>
-<th>Potential Long-Term Impact</th>
-<th>Strategic Recommendation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Crash Movement</td>
-<td>Corridor compression</td>
-<td>Emergency response delays</td>
-<td>Movement simulation & selective widening</td>
-</tr>
-<tr>
-<td>Clinical Throughput</td>
-<td>Peak-load circulation overlap</td>
-<td>Operational congestion</td>
-<td>Distributed waiting & scheduling optimization</td>
-</tr>
-<tr>
-<td>Facility Maintenance</td>
-<td>Potential shaft congestion</td>
-<td>High lifecycle maintenance cost</td>
-<td>Service-access engineering review</td>
-</tr>
-<tr>
-<td>Biomedical Waste</td>
-<td>Weak segregation logic</td>
-<td>Compliance vulnerability</td>
-<td>Dedicated dirty circulation</td>
-</tr>
-<tr>
-<td>HVAC Servicing</td>
-<td>Retrofitting vulnerability</td>
-<td>Operational shutdown risk</td>
-<td>BIM-led coordination</td>
-</tr>
-</tbody>
-</table>
+  <h2>2. Indian Healthcare Regulatory & Governance Ecosystem</h2>
+  <p>To ensure institutional credibility, legal protection, and functional validity, the infrastructure must strictly map to the following regulatory bodies and institutional frameworks:</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Regulatory Body / Standard</th>
+        <th>Audit Relevance & Compliance Mandate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Council of Architecture (COA)</strong></td>
+        <td>Validates architect registration and institutional accountability. Mandatory for structural/architectural approvals.</td>
+      </tr>
+      <tr>
+        <td><strong>Institution of Engineers India (IEI)</strong></td>
+        <td>Ensures engineering governance, structural validation, and MEP integration ethics.</td>
+      </tr>
+      <tr>
+        <td><strong>National Building Code (NBC) - BIS</strong></td>
+        <td>Dictates minimum spatial dimensions, circulation requirements, and foundational life safety metrics.</td>
+      </tr>
+      <tr>
+        <td><strong>NABH Standards</strong></td>
+        <td>Governs clinical workflows, sterile zoning, patient safety, and baseline quality of care infrastructure.</td>
+      </tr>
+      <tr>
+        <td><strong>Atomic Energy Regulatory Board (AERB)</strong></td>
+        <td>Mandatory for radiology and diagnostics layout shielding (Lead lining, equipment positioning).</td>
+      </tr>
+      <tr>
+        <td><strong>CPCB - Bio-Medical Waste Rules</strong></td>
+        <td>Dictates physical segregation routing and temporary storage logic for hazardous/infectious waste.</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 
-<section id="operations">
-<h2>4. Operational Efficiency & Bottleneck Intelligence</h2>
-<table>
-<thead><tr><th>Operational Layer</th><th>Observed Constraint</th><th>Potential Impact</th><th>Recommendation</th></tr></thead>
-<tbody>
-<tr><td>Corridor Widths</td><td>Compressed dual movement</td><td>Crash-cart congestion</td><td>Workflow simulation & selective widening</td></tr>
-<tr><td>ICU Density</td><td>High bed loading</td><td>Emergency response compromise</td><td>Reduce ICU density</td></tr>
-<tr><td>OT Workflow</td><td>Weak sterile hierarchy</td><td>Cross contamination risk</td><td>Protective-Clean-Sterile zoning redesign</td></tr>
-<tr><td>Maintenance Access</td><td>Potential engineering congestion</td><td>High lifecycle OPEX</td><td>FM-led engineering review</td></tr>
-<tr><td>Biomedical Waste</td><td>Weak dirty segregation</td><td>Compliance & hygiene risk</td><td>Dedicated dirty circulation</td></tr>
-<tr><td>Waiting Areas</td><td>Peak-load congestion</td><td>Stress & circulation conflict</td><td>Distributed waiting strategy</td></tr>
-</tbody>
-</table>
-<div class="quote">
-The project's largest long-term threat is operational saturation arising from compressed planning, systems overlap, and insufficient pre-engineering coordination.
-</div>
-<div class="chart-wrap"><canvas id="operationsChart"></canvas></div>
+<section id="disaster">
+  <h2>3. Fire & Disaster Preparedness Layer</h2>
+  <p>Hospital fires and emergency bottlenecks are paramount risks in the Indian institutional landscape. Infrastructure must be engineered for extreme continuity.</p>
+  
+  <div class="grid">
+    <div class="card">
+      <h3>Emergency Evacuation Logic</h3>
+      <ul>
+        <li>Ramp gradients graded for stretcher access under power failure</li>
+        <li>Distributed safe refuge areas per floor</li>
+        <li>Clear, uncompressed egress pathing</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h3>Fire Systems Integration</h3>
+      <ul>
+        <li>Strict compartmentation mapping</li>
+        <li>Basement smoke extraction & positive pressure in shafts</li>
+        <li>Electrical load recalibration to prevent panel fires</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Disaster Continuity (NDMA)</h3>
+      <ul>
+        <li>Seismic resilience structural audits</li>
+        <li>Critical infrastructure (ICU/OT) power redundancy</li>
+        <li>Emergency mass-casualty triage routing</li>
+      </ul>
+    </div>
+  </div>
 </section>
+
+<section id="failure-points">
+  <h2>4. Expanded Failure Points & Operational Bottlenecks</h2>
+  
+  <div class="quote">
+    The project's most severe long-term risk is operational saturation and workflow collapse stemming from inadequate multi-disciplinary integration prior to civil execution.
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Failure Category</th>
+        <th>Observed Vulnerability</th>
+        <th>Cascade Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Approval Failure</strong></td>
+        <td>Misclassification of building type; unverified professional stamping.</td>
+        <td>Denial of Fire NOC; inability to legally open or insure facility.</td>
+      </tr>
+      <tr>
+        <td><strong>Infection-Control Failure</strong></td>
+        <td>Weak OT sterile hierarchy; dirty/clean crossing in CSSD/Waste.</td>
+        <td>High hospital-acquired infection rates; NABH accreditation rejection.</td>
+      </tr>
+      <tr>
+        <td><strong>Circulation Collapse</strong></td>
+        <td>Compressed ~7ft corridors handling dual-directional traffic.</td>
+        <td>Crash-cart delays; staff/patient conflict; stretcher congestion.</td>
+      </tr>
+      <tr>
+        <td><strong>HVAC Retrofitting Failure</strong></td>
+        <td>Lack of pre-planned ducting drops and pressure cascades.</td>
+        <td>Inadequate fresh air cycles; extreme post-construction modification costs.</td>
+      </tr>
+      <tr>
+        <td><strong>Evacuation Bottleneck</strong></td>
+        <td>Undersized stairwells; reliance on elevators during code red.</td>
+        <td>Catastrophic life loss during fire/smoke events.</td>
+      </tr>
+      <tr>
+        <td><strong>OPEX Escalation Risk</strong></td>
+        <td>Inaccessible ceiling services; unoptimized chilling/electrical loads.</td>
+        <td>Unsustainable monthly running costs; severe maintenance downtime.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="chart-container">
+    <canvas id="riskChart"></canvas>
+  </div>
+</section>
+
 <section id="spatial">
-<h2>5. Spatial Planning & Carrying Capacity Audit</h2>
-<div class="grid">
-<div class="card">
-<h3>Site Physics</h3>
-<ul>
-<li>Approx. 49'-3" width</li>
-<li>High site coverage</li>
-<li>Tight setbacks</li>
-<li>Limited expansion potential</li>
-</ul>
-</div>
-<div class="card">
-<h3>Departmental Stress</h3>
-<ul>
-<li>Ward congestion post furniture placement</li>
-<li>ICU maneuverability concerns</li>
-<li>Diagnostics clearance limitations</li>
-<li>Vertical circulation pressure</li>
-</ul>
-</div>
-<div class="card">
-<h3>Strategic Positioning</h3>
-<ul>
-<li>Compact urban neuro-care institution</li>
-<li>Not suited for large tertiary scaling</li>
-<li>Requires controlled operational load</li>
-<li>Needs disciplined workflow governance</li>
-</ul>
-</div>
-</div>
-<table>
-<thead><tr><th>Department</th><th>Strength</th><th>Challenge</th><th>Recommendation</th></tr></thead>
-<tbody>
-<tr><td>Rehabilitation</td><td>Good footprint</td><td>Basement daylight deficiency</td><td>Circadian & sensory enhancement</td></tr>
-<tr><td>Diagnostics</td><td>Efficient clustering</td><td>Equipment clearance pressure</td><td>AERB-led coordination</td></tr>
-<tr><td>OT</td><td>Dedicated zoning</td><td>Weak sterile sequencing</td><td>Full sterile redesign</td></tr>
-<tr><td>ICU</td><td>Centralized location</td><td>Overcrowding risk</td><td>Reduce density & improve clearances</td></tr>
-</tbody>
-</table>
-<div class="chart-wrap"><canvas id="riskChart"></canvas></div>
-</section>
-<section id="landscape">
-<h2>6. Landscape, Biophilia & Expansion Audit</h2>
-<p>
-The site remains heavily constrained with limited realistic potential for large-format therapeutic landscapes.
-</p>
-<div class="quote">
-Recommended positioning: “Compact Urban Neuro-Care Hospital with Integrated Biophilic & Softscape Enhancements.”
-</div>
-<div class="grid">
-<div class="card">
-<h3>Not Feasible</h3>
-<ul>
-<li>Large healing gardens</li>
-<li>Therapeutic walking ecosystems</li>
-<li>Large biodiversity landscapes</li>
-<li>Major horizontal expansion</li>
-</ul>
-</div>
-<div class="card">
-<h3>Feasible Opportunities</h3>
-<ul>
-<li>Terrace greening</li>
-<li>Interior biophilia</li>
-<li>Vertical green systems</li>
-<li>Stress-reduction planting</li>
-<li>Air-purifying indoor species</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="solar-process">
-<h2>7A. Energy Coordination Matrix & Process Flow</h2>
-<table>
-<thead>
-<tr>
-<th>System</th>
-<th>Depends On</th>
-<th>Must Coordinate With</th>
-<th>Strategic Importance</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Solar PV</td>
-<td>Roof availability</td>
-<td>HVAC + Electrical + Structural</td>
-<td>OPEX reduction & resilience</td>
-</tr>
-<tr>
-<td>DG Backup</td>
-<td>Electrical infrastructure</td>
-<td>Fire + ICU + OT + MGPS</td>
-<td>Emergency continuity</td>
-</tr>
-<tr>
-<td>Medical Gas Systems</td>
-<td>ICU & OT planning</td>
-<td>HVAC + Electrical</td>
-<td>Life-support continuity</td>
-</tr>
-<tr>
-<td>HVAC Systems</td>
-<td>Architectural zoning</td>
-<td>Fire + Infection Control</td>
-<td>Sterile operational continuity</td>
-</tr>
-<tr>
-<td>Fire Systems</td>
-<td>Compartmentation</td>
-<td>Architecture + MEP</td>
-<td>Life safety compliance</td>
-</tr>
-</tbody>
-</table>
-<div class="quote">
-Recommended Healthcare Infrastructure Delivery Flow:
-<br><br>
-Vision Definition → Regulatory Reclassification → Healthcare Audit → PMC Onboarding → Spatial Revalidation → OT/ICU Coordination → Fire & HVAC Integration → MEP Coordination → Equipment Coordination → Tendering → Execution → Commissioning → NABH Alignment.
-</div>
+  <h2>5. Spatial Planning & Operational Carrying Capacity</h2>
+  
+  <p>Carrying capacity determines the maximum stress the building can endure during peak operational hours without breaking down systems or compromising patient care.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Current Site Physics</h3>
+      <ul>
+        <li>Approx width: ~49’-3”</li>
+        <li>High site coverage footprint</li>
+        <li>Basement circulation pressure</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Department Interventions</h3>
+      <ul>
+        <li><strong>ICU:</strong> Reduce bed density to 4-5 to ensure crash cart clearances.</li>
+        <li><strong>OT Complex:</strong> Implement strict 3-zone sterile logic (Protective, Clean, Sterile).</li>
+        <li><strong>Rehab:</strong> Introduce circadian lighting strategies to combat basement daylight deficiency.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="chart-container">
+    <canvas id="operationsChart"></canvas>
+  </div>
 </section>
 
-<section id="solar">
-<h2>7. Solar Energy & Resilience Integration</h2>
-<table>
-<thead><tr><th>System</th><th>Strategic Value</th><th>Constraint</th><th>Recommendation</th></tr></thead>
-<tbody>
-<tr><td>Rooftop Solar PV</td><td>OPEX reduction</td><td>HVAC & utility congestion</td><td>Hybrid solar integration</td></tr>
-<tr><td>Solar Water Heating</td><td>Operational efficiency</td><td>Roof-space sharing</td><td>Selective deployment</td></tr>
-<tr><td>Energy Monitoring</td><td>Operational analytics</td><td>Requires BMS integration</td><td>Smart energy dashboard</td></tr>
-<tr><td>Grid + DG + UPS + Solar</td><td>Continuity resilience</td><td>High coordination dependency</td><td>Integrated energy architecture</td></tr>
-</tbody>
-</table>
+<section id="landscape">
+  <h2>6. Landscape Strategy & Biophilic Audit</h2>
+  <p>
+    Given the urban footprint, large therapeutic landscapes are structurally unviable. The strategy must shift to high-impact micro-interventions.
+  </p>
+  <div class="quote">
+    Strategic Positioning: "A Compact Urban Neuro-Care Hospital utilizing focused, integrated softscape enhancements."
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Non-Feasible Elements</h3>
+      <ul>
+        <li>Large terrestrial healing gardens</li>
+        <li>Extensive rehab walking loops</li>
+        <li>Deep-soil biodiversity ecosystems</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Feasible Interventions</h3>
+      <ul>
+        <li>Engineered terrace greening</li>
+        <li>Micro-biophilia in waiting zones</li>
+        <li>Indoor air-purifying plant integration</li>
+        <li>Vertical green walls at primary entrances</li>
+      </ul>
+    </div>
+  </div>
 </section>
+
 <section id="budget">
-<h2>8. Strategic Budget & Lifecycle Framework</h2>
-<table>
-<thead><tr><th>Component</th><th>Indicative Range</th><th>Lifecycle OPEX Impact</th></tr></thead>
-<tbody>
-<tr><td>Civil & Structural</td><td>₹9 Cr – ₹14 Cr</td><td>Moderate</td></tr>
-<tr><td>Medical Equipment</td><td>₹8 Cr – ₹22 Cr</td><td>Very High</td></tr>
-<tr><td>HVAC & Sterile Systems</td><td>₹2.5 Cr – ₹5 Cr</td><td>Very High</td></tr>
-<tr><td>MEP Infrastructure</td><td>₹4 Cr – ₹7 Cr</td><td>High</td></tr>
-<tr><td>Fire & Life Safety</td><td>₹80 L – ₹1.8 Cr</td><td>Medium</td></tr>
-</tbody>
-</table>
-<div class="chart-wrap"><canvas id="budgetChart"></canvas></div>
+  <h2>7. Lifecycle OPEX & CAPEX Strategy</h2>
+  <p>Capital expenditure (CAPEX) must be balanced against 15-year operational expenditure (OPEX) to ensure the financial viability of the neuro-care facility.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Infrastructure Component</th>
+        <th>Estimated CAPEX Range</th>
+        <th>Lifecycle OPEX Impact Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Civil, Structural & Architectural</td>
+        <td>₹9 Cr – ₹14 Cr</td>
+        <td>Low (Periodic maintenance)</td>
+      </tr>
+      <tr>
+        <td>Medical Equipment & Diagnostics</td>
+        <td>₹8 Cr – ₹22 Cr</td>
+        <td>High (AMCs, upgrades, calibration)</td>
+      </tr>
+      <tr>
+        <td>MEP & Utility Systems</td>
+        <td>₹4 Cr – ₹7 Cr</td>
+        <td>Very High (Power, water, daily running)</td>
+      </tr>
+      <tr>
+        <td>HVAC & Sterile Air Cascades</td>
+        <td>₹2.5 Cr – ₹5 Cr</td>
+        <td>Very High (Filters, chilling loads)</td>
+      </tr>
+      <tr>
+        <td>Fire & Life Safety Systems</td>
+        <td>₹80 L – ₹1.8 Cr</td>
+        <td>Medium (Testing, NOC renewals)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="chart-container" style="height: 300px;">
+    <canvas id="budgetChart"></canvas>
+  </div>
 </section>
-<section>
-<h2>9. Stakeholder Psychology (NDPFF)</h2>
-<table>
-<thead><tr><th>Layer</th><th>Strategic Interpretation</th></tr></thead>
-<tbody>
-<tr><td>Needs</td><td>Compliant, efficient and safe neuro-care institution</td></tr>
-<tr><td>Desires</td><td>Institutional credibility & regional recognition</td></tr>
-<tr><td>Pain</td><td>Coordination complexity & budget uncertainty</td></tr>
-<tr><td>Problems</td><td>Spatial compression & systems gaps</td></tr>
-<tr><td>Fears</td><td>Fire incidents, retrofits & operational failure</td></tr>
-<tr><td>Fantasy</td><td>Future-ready landmark neuro-care institution</td></tr>
-</tbody>
-</table>
+
+<section id="psychology">
+  <h2>8. Stakeholder Psychology (Advanced NDPFF Analysis)</h2>
+  <p>Understanding the psychological drivers of Dr. Rakesh A.V and the promoter group is critical for aligning design execution with long-term institutional ambitions.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Psychological Layer</th>
+        <th>Strategic Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Needs</strong></td>
+        <td>A functionally compliant, legally protected, operationally seamless neuro-care facility.</td>
+      </tr>
+      <tr>
+        <td><strong>Desires</strong></td>
+        <td>Institutional recognition, medical credibility among peers, and regional healthcare dominance.</td>
+      </tr>
+      <tr>
+        <td><strong>Pain Points</strong></td>
+        <td>Multidisciplinary coordination chaos, project timeline uncertainty, and budget ambiguity.</td>
+      </tr>
+      <tr>
+        <td><strong>Problems</strong></td>
+        <td>Existing site structural constraints and critical systemic infrastructure gaps.</td>
+      </tr>
+      <tr>
+        <td><strong>Fears</strong></td>
+        <td>Catastrophic fire incidents, expensive post-construction retrofits, and reputation failure.</td>
+      </tr>
+      <tr>
+        <td><strong>Fantasy</strong></td>
+        <td>Establishing a future-ready, landmark regional neuro-care institution synonymous with excellence.</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
+
 <section id="pmc">
-<h2>10. PMC, Governance & Coordination Ecosystem</h2>
-<div class="grid">
-<div class="card"><h3>Critical Consultants</h3><ul><li>Healthcare PMC</li><li>Healthcare Architect</li><li>Fire Consultant</li><li>HVAC Consultant</li><li>Medical Planner</li></ul></div>
-<div class="card"><h3>Operational Specialists</h3><ul><li>Infection Control Consultant</li><li>NABH Consultant</li><li>Facility Management Advisor</li><li>Medical Equipment Planner</li></ul></div>
-<div class="card"><h3>Technology & Smart Systems</h3><ul><li>BMS Integrator</li><li>IT/HMS Consultant</li><li>Solar Consultant</li><li>Smart Monitoring Systems</li></ul></div>
-</div>
-<ol>
-<li>Vision Definition</li>
-<li>Regulatory Reclassification</li>
-<li>Healthcare Audit</li>
-<li>PMC Onboarding</li>
-<li>MEP & OT Coordination</li>
-<li>Engineering Integration</li>
-<li>Tender & Procurement</li>
-<li>Execution & Validation</li>
-<li>NABH Alignment</li>
-</ol>
-</section>
-<section id="bni">
-<h2>11. BNI Karnataka Strategic Ecosystem</h2>
-<table>
-<thead><tr><th>Region</th><th>Website</th><th>Strategic Role</th></tr></thead>
-<tbody>
-<tr><td>BNI Bangalore</td><td>https://bni-bangalore.in</td><td>Healthcare consultants & institutional ecosystem</td></tr>
-<tr><td>BNI Hubli Dharwad</td><td>https://www.bni-hublidharwad.in</td><td>Regional execution network</td></tr>
-<tr><td>BNI Mysore</td><td>https://www.bni-mysore.in</td><td>Institutional collaboration ecosystem</td></tr>
-<tr><td>BNI Mangalore</td><td>https://www.bni-mangalore.in</td><td>Vendor & healthcare referral ecosystem</td></tr>
-</tbody>
-</table>
-<div>
-<span class="tag">Healthcare Architecture</span>
-<span class="tag">HVAC</span>
-<span class="tag">Fire Safety</span>
-<span class="tag">MGPS</span>
-<span class="tag">Solar</span>
-<span class="tag">Smart Hospital Systems</span>
-<span class="tag">Medical Equipment</span>
-<span class="tag">Facility Management</span>
-</div>
-</section>
-<section id="future">
-<h2>12A. Future-Readiness & Smart Hospital Positioning</h2>
-<p>
-The proposed institution should progressively evolve toward a digitally enabled, operationally intelligent healthcare ecosystem rather than a static healthcare building.
-</p>
-<div class="grid">
-<div class="card">
-<h3>Recommended Smart Systems</h3>
-<ul>
-<li>Hospital Management System (HMS)</li>
-<li>Digital Queue Management</li>
-<li>Smart Nurse Call Systems</li>
-<li>Energy Monitoring Dashboards</li>
-<li>BMS Integration</li>
-<li>Asset Tracking Systems</li>
-</ul>
-</div>
-<div class="card">
-<h3>Operational Analytics</h3>
-<ul>
-<li>Patient movement analysis</li>
-<li>Energy-use analytics</li>
-<li>HVAC operational dashboards</li>
-<li>Maintenance scheduling systems</li>
-<li>Emergency response tracking</li>
-<li>Occupancy load intelligence</li>
-</ul>
-</div>
-<div class="card">
-<h3>Institutional Positioning</h3>
-<ul>
-<li>Compact advanced neuro-care identity</li>
-<li>High-efficiency urban healthcare model</li>
-<li>NABH-oriented institutional branding</li>
-<li>Technology-enabled rehabilitation systems</li>
-<li>Operational resilience positioning</li>
-</ul>
-</div>
-</div>
+  <h2>9. Governance, PMC & Implementation Ecosystem</h2>
+  
+  <h3>Required Institutional Governance Structure</h3>
+  <div class="grid">
+    <div class="card">
+      <h3>Core Consulting Trust</h3>
+      <ul>
+        <li>Healthcare PMC Lead</li>
+        <li>COA Registered Healthcare Architect</li>
+        <li>IEI Certified MEP & HVAC Consultants</li>
+        <li>Fire & Life Safety Strategist</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Clinical & Operational Intelligence</h3>
+      <ul>
+        <li>Hospital Operations/NABH Consultant</li>
+        <li>Infection-Control Lead</li>
+        <li>Medical Equipment Planner</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Future-Proofing Technologists</h3>
+      <ul>
+        <li>BMS/Smart Hospital Integrator</li>
+        <li>Energy Resilience & Solar Consultant</li>
+        <li>IT & HMS Deployment Lead</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote">
+    <strong>Healthcare Delivery Workflow:</strong> Regulatory Alignment &rarr; Planning Audit &rarr; PMC Onboarding &rarr; Sterile/MEP Coordination &rarr; Detailed Engineering &rarr; Tender/Procurement &rarr; Commissioning &rarr; NABH Certification.
+  </div>
 </section>
 
 <section id="references">
-<h2>12. Verified Regulatory, Technical & Source References</h2>
-<ul>
-<li><a href="https://github.com/greenscapedesignz/Integrated_Healthcare_Infrastructure_Strategy_Report_Dr_Rakesh/blob/main/RAKESH%20HOSPITAL_SUB%20(15-04-26).pdf" target="_blank">Primary Architectural & Infrastructure Documentation Reviewed</a></li>
-<h2>12. Verified Regulatory & Technical References</h2>
-<ul>
-<li><a href="https://www.coa.gov.in/" target="_blank">Council of Architecture (COA)</a></li>
-<li><a href="https://www.ieindia.org/" target="_blank">Institution of Engineers India (IEI)</a></li>
-<li><a href="https://ndma.gov.in/" target="_blank">National Disaster Management Authority (NDMA)</a></li>
-<li><a href="https://bis.gov.in/index.php/standards/technical-department/national-building-code/" target="_blank">National Building Code (NBC) 2016 – BIS</a></li>
-<li><a href="https://nabh.co/standards/" target="_blank">NABH Standards</a></li>
-<li><a href="https://www.aerb.gov.in/english" target="_blank">Atomic Energy Regulatory Board (AERB)</a></li>
-<li><a href="https://cpwd.gov.in/Publication/Harmonisedguidelinesdreleasedon23rdMarch2021.pdf" target="_blank">Harmonised Accessibility Guidelines (CPWD)</a></li>
-<li><a href="https://www.tatapowersolar.com/" target="_blank">Tata Power Solar</a></li>
-<li><a href="https://www.bluestarindia.com/healthcare-solutions" target="_blank">Blue Star Healthcare Solutions</a></li>
-<li><a href="https://www.beaconmedaes.com/en/in/" target="_blank">BeaconMedaes Medical Gas Solutions</a></li>
-<li><a href="https://www.nhp.gov.in/" target="_blank">National Health Portal of India</a></li>
-<li><a href="https://main.mohfw.gov.in/" target="_blank">Ministry of Health & Family Welfare</a></li>
-<li><a href="https://cpcb.nic.in/" target="_blank">Central Pollution Control Board (Biomedical Waste)</a></li>
-<li><a href="https://fsi.nic.in/" target="_blank">Fire Service College & Fire Safety Resources</a></li>
-</ul>
+  <h2>10. Verified Regulatory & Technical References</h2>
+  
+  <ul class="reference-list">
+    <li><a href="https://www.coa.gov.in/" target="_blank">Council of Architecture (COA) - Professional Verification & Accountability</a></li>
+    <li><a href="https://www.ieindia.org/" target="_blank">Institution of Engineers India (IEI) - Engineering Governance</a></li>
+    <li><a href="https://ndma.gov.in/" target="_blank">National Disaster Management Authority (NDMA) - Hospital Safety Guidelines</a></li>
+    <li><a href="https://www.bis.gov.in/" target="_blank">Bureau of Indian Standards (BIS) - National Building Code (NBC) Integration</a></li>
+    <li><a href="https://nabh.co/" target="_blank">National Accreditation Board for Hospitals & Healthcare Providers (NABH)</a></li>
+    <li><a href="https://www.aerb.gov.in/" target="_blank">Atomic Energy Regulatory Board (AERB) - Radiation Safety Compliance</a></li>
+    <li><a href="https://cpcb.nic.in/uploads/Projects/Bio-Medical-Waste/BMW-Rules-2016.pdf" target="_blank">Central Pollution Control Board - Bio-Medical Waste Management Rules 2016</a></li>
+  </ul>
+  
+  <div style="margin-top: 20px;">
+    <span class="tag">Healthcare Architecture</span>
+    <span class="tag">NABH Compliance</span>
+    <span class="tag">Fire Safety Governance</span>
+    <span class="tag">AERB Shielding</span>
+    <span class="tag">HVAC Cascades</span>
+    <span class="tag">Clinical OPEX</span>
+    <span class="tag">Smart Hospital Integration</span>
+    <span class="tag">NDMA Resilience</span>
+  </div>
 </section>
-<section>
-<h2>13. Final Strategic Conclusion</h2>
-<div class="quote">
-The project remains highly salvageable and possesses strong potential to evolve into a resilient, operationally efficient, future-ready compact neuro-care institution for Hubli and the surrounding region — provided governance-led multidisciplinary coordination is implemented before irreversible construction progression.
+
 </div>
-</section>
-</div>
+
 <footer>
-<h3>Greenscape Designz</h3>
-<p>
-Strategic Built Environment | Healthcare Infrastructure Intelligence | Systems-Led Design Advisory
-</p>
+  <h3>Greenscape Designz</h3>
+  <p>
+    Strategic Built Environment | Healthcare Infrastructure Advisory | Systems-Led Design Intelligence<br>
+    Integrating Engineering Governance, Architectural Excellence, and Lifecycle Resilience.
+  </p>
 </footer>
+
 <script>
-Chart.defaults.font.family="Arial Narrow";
-const operationsChart=new Chart(document.getElementById('operationsChart'),{type:'radar',data:{labels:['Circulation','ICU','OT','HVAC','Waste','Maintenance'],datasets:[{label:'Operational Stress Index',data:[9,8,10,9,7,8],fill:true}]},options:{responsive:true}});
-const riskChart=new Chart(document.getElementById('riskChart'),{type:'bar',data:{labels:['Regulatory','Fire','OT/ICU','HVAC','Operations'],datasets:[{label:'Risk Severity',data:[10,10,10,8,9]}]},options:{responsive:true,plugins:{legend:{display:false}}}});
-const budgetChart=new Chart(document.getElementById('budgetChart'),{type:'doughnut',data:{labels:['Civil','Medical Equipment','MEP','HVAC','Fire'],datasets:[{data:[14,22,7,5,2]}]},options:{responsive:true}});
+  // Chart styling defaults for better UI/UX
+  Chart.defaults.font.family = "'Arial Narrow', Arial, sans-serif";
+  Chart.defaults.color = '#1f2937';
+
+  // 1. Risk Severity Chart (Bar)
+  const riskCtx = document.getElementById('riskChart');
+  new Chart(riskCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Approval/Legal', 'Fire/Evacuation', 'Infection Control', 'HVAC/Sterile', 'Circulation/ICU'],
+      datasets: [{
+        label: 'Failure Severity Index',
+        data: [10, 10, 9, 8, 8],
+        backgroundColor: [
+          'rgba(153, 27, 27, 0.8)',
+          'rgba(153, 27, 27, 0.8)',
+          'rgba(194, 65, 12, 0.8)',
+          'rgba(29, 111, 111, 0.8)',
+          'rgba(29, 111, 111, 0.8)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { 
+        legend: { display: false },
+        title: { display: true, text: 'Critical Infrastructure Failure Risk Severity', font: { size: 16 } }
+      },
+      scales: {
+        y: { beginAtZero: true, max: 10 }
+      }
+    }
+  });
+
+  // 2. Operational Capacity Chart (Radar)
+  const opsCtx = document.getElementById('operationsChart');
+  new Chart(opsCtx, {
+    type: 'radar',
+    data: {
+      labels: ['Staff Movement', 'ICU Flexibility', 'OT Sterility', 'HVAC Stability', 'Waste Route', 'Service Access'],
+      datasets: [{
+        label: 'Operational Stress Level (Higher = Worse)',
+        data: [9, 8, 10, 8, 7, 9],
+        backgroundColor: 'rgba(15, 61, 62, 0.2)',
+        borderColor: '#0f3d3e',
+        pointBackgroundColor: '#c2410c',
+        fill: true
+      }]
+    },
+    options: { 
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: { display: true, text: 'Operational Capacity Stress Map', font: { size: 16 } }
+      },
+      scales: {
+        r: { min: 0, max: 10 }
+      }
+    }
+  });
+
+  // 3. CAPEX Distribution (Pie)
+  const budgetCtx = document.getElementById('budgetChart');
+  new Chart(budgetCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Civil/Struct.', 'Med Equip', 'MEP Utility', 'HVAC/Air', 'Fire Safety'],
+      datasets: [{
+        data: [25, 40, 15, 15, 5],
+        backgroundColor: [
+          '#123b58',
+          '#1d6f6f',
+          '#0f3d3e',
+          '#d8efe8',
+          '#c2410c'
+        ]
+      }]
+    },
+    options: { 
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: { display: true, text: 'Estimated CAPEX Distribution (%)', font: { size: 16 } }
+      }
+    }
+  });
 </script>
+
 </body>
 </html>
